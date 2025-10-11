@@ -20,6 +20,16 @@ app.use(express.json());
 const rooms = new Map();
 const users = new Map();
 
+// Ruta por defecto - Status
+app.get('/', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+// Endpoint de estado simple
+app.get('/api/status', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
 // Generar código único para sala
 app.post('/api/create-room', (req, res) => {
   const roomCode = nanoid(6).toUpperCase();
